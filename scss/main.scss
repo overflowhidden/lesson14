@@ -1,22 +1,65 @@
-@import 'include-media.scss';
-@mixin clearfix{
-	&:after{
-		content:'';
-		clear: both;
-		display: block;
-	}
+@import '_reset';
+@import '_include-media';
+@import '_header';
+@import '_variables';
+@mixin clearfix {
+    &:after {
+        content: '';
+        clear: both;
+        display: block;
+    }
 }
-.main{
-	width: 960px;
-	background: #f00;
-	margin: auto;
-	@include clearfix;
-	@include media('<900px'){
-		background: #99f;
-	}
-	ul{ 
-		padding: 0;
-		margin: 0;
-		background: #0f9;
-	}  
+
+@mixin btn ($bg, $link-color) {
+    font: 20px 'Arial', sans-serif;
+    background: $bg;
+    color: $link-color;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    color: $color-base;
+}
+
+.btn1 {
+    @include btn(#f00, #000);
+}
+
+.btn2 {
+    @include btn($bg-green, #09f);
+}
+
+.btn3 {
+    @include btn(#000, #fff);
+}
+
+body {
+    color: $color-base;
+}
+
+a {
+    color: $color-base;
+}
+
+.main {
+    width: 960px;
+    background: #999;
+    margin: auto;
+    @include clearfix;
+    @include media('<900px') {
+        background: #99f;
+        font-size: 30px;
+    }
+}
+
+.button {
+    div {
+        margin-bottom: 20px;
+        text-align: center;
+    }
 }
